@@ -11,11 +11,17 @@ const rl = readline.createInterface({
 });
 
 
-const pigLatin = (word) => {
-
+const pigLatin = (str) => {
+    str = str.trim().toLowerCase();
+    let firstVowel = str.match(/[aeiou]/);
+    let firstPosition = str.indexOf(firstVowel);
+    if (firstPosition > 0) {
+    return str.slice(firstPosition) + str.slice(0, firstPosition) + 'ay';
+    }
+    return str + "yay";
+    }
   // Your code here
 
-}
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
